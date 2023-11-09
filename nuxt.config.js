@@ -1,10 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-import Constants from './constants'
+import fs from 'fs';
+import { join, resolve } from 'path';
+import Constants from './configs/constants';
 
 const locales = fs
-  .readdirSync(path.join(__dirname, 'locales'))
-  .map((file) => file.replace(/\.json/, ''))
+  .readdirSync(join(resolve('configs'), 'locales'))
+  .map((file) => file.replace(/\.json/, ''));
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -23,13 +23,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/styles/main.scss'],
+  css: ['@/app/assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '@/plugins/constants',
-    '@/plugins/lodash',
-  ],
+  plugins: ['@configs/plugins/constants', '@configs/plugins/lodash'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -48,7 +45,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n',
-
   ],
 
   i18n: {
@@ -56,11 +52,11 @@ export default {
       code: locale,
       file: `${locale}.json`,
     })),
-    defaultLocale: process.env.NUXT_APP_LOCALE || Constants.common.LOCALE,
+    defaultLocale: process.env.NUXT_APP_LOCALE || Constants.commons.LOCALE,
     lazy: true,
-    langDir: 'locales/',
+    langDir: 'configs/locales/',
     vueI18n: {
-      fallbackLocale: process.env.NUXT_APP_LOCALE || Constants.common.LOCALE,
+      fallbackLocale: process.env.NUXT_APP_LOCALE || Constants.commons.LOCALE,
     },
     baseUrl: '/',
     strategy: 'no_prefix',
@@ -68,7 +64,7 @@ export default {
       useCookie: true,
       cookieKey: 'i18n_redirected',
       alwaysRedirect: false,
-      fallbackLocale: process.env.NUXT_APP_LOCALE || Constants.common.LOCALE,
+      fallbackLocale: process.env.NUXT_APP_LOCALE || Constants.commons.LOCALE,
     },
   },
 
@@ -84,10 +80,10 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/styles/base/variables.scss'],
+    customVariables: ['@/app/assets/styles/base/variables.scss'],
     theme: {},
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+};
