@@ -1,0 +1,17 @@
+:deep(.custom-validate) {
+  .custom-validate {
+    &__input {
+      .v-input {
+        &__slot {
+          display: none;
+        }
+      }
+
+      .v-text-field {
+        &__details {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+}

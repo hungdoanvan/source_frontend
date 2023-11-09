@@ -1,0 +1,10 @@
+.the-default-layout {
+  &__header {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
+  }
+}

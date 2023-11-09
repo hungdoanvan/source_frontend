@@ -1,0 +1,16 @@
+::v-deep.v-btn {
+  &.is-block {
+    width: 448px;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  span {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  &--active::before {
+    opacity: 0;
+  }
+}
