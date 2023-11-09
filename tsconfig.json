@@ -13,15 +13,16 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
-      "@/*": ["./*"]
-    },
-    "types": [
-      "@nuxt/types",
-      "@nuxtjs/axios",
-      "@types/node",
-      "@nuxtjs/i18n",
-      "@/types/nuxt-shim.d.ts"
-    ]
+      "@/*": ["./*"],
+      "@configs": ["configs"],
+      "@configs/*": ["configs/*"],
+      "@application": ["configs/application"],
+      "@env": ["configs/env"],
+      "@enum": ["configs/enum"],
+      "@models": ["app/models"],
+      "@views": ["app/views"],
+      "@controllers": ["app/controllers"]
+    }
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }

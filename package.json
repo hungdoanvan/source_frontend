@@ -10,13 +10,18 @@
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "git": "sh .vscode/git.sh",
+    "db:migrate": "npx prisma migrate dev",
+    "db:seed": "node models/factories/seed.ts"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/i18n": "^7.2.1",
+    "@prisma/client": "^5.5.2",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
+    "prisma": "^5.5.2",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
